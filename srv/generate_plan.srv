@@ -1,0 +1,5 @@
+geometry_msgs/Pose p_i
+geometry_msgs/Pose p_f
+---
+trajectory_msgs/JointTrajectory traj
+
