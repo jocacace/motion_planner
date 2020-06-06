@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+	<node pkg="motion_planner" name="motion_planner" type="motion_planner" output="screen">
+
+		<param name="V_max" value="1.0" />
+		<param name="A_max" value="0.5" />
+		<param name="J_max" value="0.25" />
+
+		<param name="aV_max" value="1.5" />
+		<param name="aA_max" value="0.75" />
+		<param name="aJ_max" value="0.35" />
+
+	</node>
+
+</launch>

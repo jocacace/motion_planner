@@ -96,6 +96,10 @@ class TPlanner {
         double _A_max;
         double _J_max;
 
+        double _aV_max;
+        double _aA_max;
+        double _aJ_max;
+
 };
 
 TPlanner::TPlanner() {
@@ -105,6 +109,11 @@ TPlanner::TPlanner() {
     load_param( _V_max, 0.5, "V_max");
     load_param( _A_max, 0.25, "A_max");
     load_param( _J_max, 0.125, "J_max");
+
+
+    load_param( _aV_max, 1.5, "aV_max");
+    load_param( _aA_max, 1.25, "aA_max");
+    load_param( _aJ_max, 1.125, "aJ_max");
 
 
 }
@@ -150,7 +159,7 @@ bool TPlanner::trajectory( motion_planner::generate_plan::Request &req, motion_p
     traj_x.setParam(old_ref[0], new_ref[0], _V_max, _A_max, _J_max);
     traj_y.setParam(old_ref[1], new_ref[1], _V_max, _A_max, _J_max);
     traj_z.setParam(old_ref[2], new_ref[2], _V_max, _A_max, _J_max);
-    traj_yaw.setParam(old_ref[3], new_ref[3], _V_max, _A_max, _J_max);
+    traj_yaw.setParam(old_ref[3], new_ref[3], _aV_max, _aA_max, _aJ_max);
 
     float max_time = max( float(traj_x.Duration()),  max( float( traj_y.Duration() ), max( float( traj_z.Duration() ), float( traj_yaw.Duration() ) ) ) ); 
     
